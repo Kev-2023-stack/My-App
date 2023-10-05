@@ -11,8 +11,13 @@ function App() {
   ]);
 
   const addDepense = (newDepense) => {
+    console.log(newDepense)
     // Erstelle eine Kopie der aktuellen Ausgabenliste und füge das neue Element hinzu
-    setItems([...items, newDepense]);
+    setItems = (prevItems) => {
+      return [newDepense, ...prevItems];
+
+    }
+
   };
 
   return (

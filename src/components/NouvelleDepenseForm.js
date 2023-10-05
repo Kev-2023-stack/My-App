@@ -5,7 +5,7 @@ function NouvelleDepenseForm({ onAddDepense }) {
     const [titel, setTitel] = useState("");
     const [date, setDate] = useState("");
     const [amount, setAmount] = useState("");
-    const [error, setError] = useState(""); // Zustand für Fehlermeldung
+
 
     const changeTitel = (event) => {
         setTitel(event.target.value);
@@ -22,43 +22,39 @@ function NouvelleDepenseForm({ onAddDepense }) {
     const speichern = (event) => {
         event.preventDefault();
 
-        if (!titel || !date || !amount) {
-            setError("Bitte füllen Sie alle Felder aus.");
-            return;
-        }
-
         // Neues Ausgabenelement erstellen
         const newDepense = {
-            titel,
-            date,
-            amount
+            id: Math.random().toString(),
+            date: date,
+            title: titel,
+            amount: amount
+
         };
 
         // Ausgabenelement zur Liste hinzufügen
         onAddDepense(newDepense);
 
+
         // Formular zurücksetzen
         setTitel("");
         setDate("");
         setAmount("");
-        setError("");
     }
 
     return (
         <div>
             <form onSubmit={speichern}>
                 <label>
-                    Titel: <input name="titel" onChange={changeTitel} value={titel} />
+                    Titel: <input type="text" name="titel" onChange={changeTitel} value={titel} />
                 </label>
                 <label>
-                    Date: <input name="date" onChange={changeDate} value={date} />
+                    Date: <input type='date' name="date" onChange={changeDate} value={date} />
                 </label>
                 <label>
-                    Amount: <input name="amount" onChange={changeAmount} value={amount} />
+                    Amount: <input type='number' name="amount" onChange={changeAmount} value={amount} />
                 </label>
                 <button type="submit">Speichern</button>
             </form>
-            {error && <div className="error-message">{error}</div>} {/* Anzeige der Fehlermeldung */}
         </div>
     );
 }

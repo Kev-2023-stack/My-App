@@ -1,0 +1,26 @@
+p {
+    color: #742525;
+}
+
+/* styles.css oder styles.scss */
+
+.date-component {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 14px;
+    color: #333;
+    /* Textfarbe */
+}
+
+.date-component span {
+    margin: 5px;
+    /* Abstand zwischen den Datumselementen */
+    padding: 5px;
+    border: 1px solid #ccc;
+    /* Rand um jedes Datumselement */
+    border-radius: 4px;
+    /* Abgerundete Ecken */
+    background-color: #f0f0f0;
+    /* Hintergrundfarbe */
+}
